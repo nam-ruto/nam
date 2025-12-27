@@ -6,15 +6,6 @@ const { footer, global } = useAppConfig()
 defineProps<{
   page: IndexCollectionItem
 }>()
-
-const downloadResume = () => {
-  const link = document.createElement('a')
-  link.href = '/resume/NamHoang_SE.pdf'
-  link.download = 'NamHoang_SE.pdf'
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-}
 </script>
 
 <template>

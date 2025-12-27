@@ -28,6 +28,15 @@ export default defineNuxtConfig({
     }
   },
 
+  eslint: {
+    config: {
+      stylistic: {
+        commaDangle: 'never',
+        braceStyle: '1tbs'
+      }
+    }
+  },
+
   icon: {
     // Custom SVG icon collection for use with UIcon (`i-custom-*`)
     customCollections: [
@@ -36,14 +45,5 @@ export default defineNuxtConfig({
         dir: './app/assets/icons'
       }
     ]
-  },
-
-  eslint: {
-    config: {
-      stylistic: {
-        commaDangle: 'never',
-        braceStyle: '1tbs'
-      }
-    }
   }
 })
