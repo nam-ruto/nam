@@ -8,7 +8,7 @@ const { footer } = useAppConfig()
     :ui="{ left: 'text-muted text-xs' }"
   >
     <template #left>
-      {{ footer.credits }}
+      <!-- {{ footer.credits }} -->
     </template>
 
     <template #right>

@@ -1,13 +1,9 @@
 seo:
-  title: "Emma Thompson - UX/UI Designer"
-  description: "Welcome to my portfolio! I'm Emma Thompson, a UX/UI designer and front-end developer based in Boston. I specialize in creating user-centered digital experiences that are both beautiful and functional."
-title: "Hey, I'm Emma Thompson UX/UI Designer"
-description: "I craft intuitive digital experiences where design meets functionality. Based in Boston, bringing ideas to life through code and creativity."
+  title: "Nam Hoang - Software Engineer"
+  description: "Welcome to my portfolio! I'm Nam Hoang, a Software Engineer."
+title: "Hey, I'm Nam Hoang Software Engineer"
+description: "'There are only two hard things in computer science: cache invalidation and naming things.'"
 hero:
-  links:
-    - label: "Use this template"
-      to: https://github.com/nuxt-ui-templates/portfolio
-      color: "neutral"
   images:
     - src: /hero/random-1.avif
       alt: Random Image 1
@@ -30,32 +26,39 @@ hero:
 about:
   title: "About Me"
   description: |
-    As a UX/UI designer and front-end developer with 6 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences.
-    My approach blends creative strategy with technical expertise, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.
+    Computer Science student at Troy University with hands-on experience in Software Engineering, Data Engineering, and AI development.
+    I’ve built full-stack applications, data pipelines, and AI systems using modern tools such as Python, JavaScript, FastAPI, and large language models. I enjoy solving complex problems, designing scalable systems, and turning raw data into useful insights
 experience:
   title: Work Experience
   items:
-    - position: "Brand Designer at"
-      date: "2023 - Present"
+    - position: "Software Engineer @"
+      date: "June 2024 - Present"
       company:
-        name: Nuxt
-        logo: "i-simple-icons-nuxtdotjs"
-        url: "https://nuxt.com"
-        color: "#00DC82"
-    - position: "Assets Designer at"
-      date: "2022 - 2023"
+        name: ISODS
+        logo: "i-custom-isods"
+        url: "https://ai.isods.org/"
+        color: "#FF6816"
+    - position: "Data Engineer @"
+      date: "May 2025 - Aug 2025"
       company:
-        name: Raycast
-        logo: "i-simple-icons-raycast"
-        url: "https://raycast.com"
-        color: "#FF6363"
-    - position: "Senior UX/UI Designer at"
-      date: "2020 - 2021"
+        name: Cerrowire
+        logo: "i-simple-icons-target"
+        url: "https://www.cerrowire.com/"
+        color: "#FFFFFF"
+    - position: "Mobile Development @"
+      date: "Jan 2025 - Dec 2025"
       company:
-        name: Linear
-        logo: "i-simple-icons-linear"
-        url: "https://linear.app"
-        color: "#5E6AD2"
+        name: Troy Uni
+        logo: "i-custom-troy"
+        url: "https://troy.edu/"
+        color: "#720724"
+    - position: "Data Engineer @"
+      date: "May 2024 - Aug 2024"
+      company:
+        name: FPT Software
+        logo: "i-custom-fpt"
+        url: "https://fptsoftware.com/"
+        color: "#0052A5"
 testimonials:
   - quote: "Emma's approach to UX design completely transformed our product. She has a rare ability to balance beautiful aesthetics with functional simplicity. The redesign not only looked better, but it reduced our customer support tickets by 40% and increased conversion rates across all key metrics."
     author:
@@ -80,7 +83,7 @@ testimonials:
         srcset: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
 blog:
   title: "Latest Articles"
-  description: "Some of my recent thoughts"
+  description: "Some of my recent thoughts 💭"
 faq:
   title: Frequently Asked Questions
   description: Answers to common questions about my process and services.

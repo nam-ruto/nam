@@ -6,6 +6,15 @@ const { footer, global } = useAppConfig()
 defineProps<{
   page: IndexCollectionItem
 }>()
+
+const downloadResume = () => {
+  const link = document.createElement('a')
+  link.href = '/resume/NamHoang_SE.pdf'
+  link.download = 'NamHoang_SE.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 </script>
 
 <template>
@@ -34,7 +43,9 @@ defineProps<{
         }"
       >
         <UColorModeAvatar
-          class="size-18 ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
+          class="size-32 ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
+          width="528"
+          height="528"
           :light="global.picture?.light!"
           :dark="global.picture?.dark!"
           :alt="global.picture?.alt!"
@@ -65,6 +76,7 @@ defineProps<{
 
     <template #description>
       <Motion
+        class="italic"
         :initial="{
           scale: 1.1,
           opacity: 0,
@@ -101,27 +113,30 @@ defineProps<{
           delay: 0.5
         }"
       >
-        <div
-          v-if="page.hero.links"
-          class="flex items-center gap-2"
-        >
-          <UButton v-bind="page.hero.links[0]" />
+        <div class="flex items-center gap-2">
           <UButton
-            :color="global.available ? 'success' : 'error'"
+            label="Download Resume"
+            color="neutral"
+            download="NamHoang_SE.pdf"
+            href="/resume/NamHoang_SE.pdf"
+            target="_blank"
+          />
+          <UButton
+            :color="global.available ? 'primary' : 'error'"
             variant="ghost"
             class="gap-2"
-            :to="global.available ? global.meetingLink : ''"
-            :label="global.available ? 'Available for new projects' : 'Not available at the moment'"
+            :to="global.available ? global.githubLink : ''"
+            :label="global.available ? 'Checking my new projects' : 'Not available at the moment'"
           >
             <template #leading>
               <span class="relative flex size-2">
                 <span
                   class="absolute inline-flex size-full rounded-full opacity-75"
-                  :class="global.available ? 'bg-success animate-ping' : 'bg-error'"
+                  :class="global.available ? 'bg-primary animate-ping' : 'bg-error'"
                 />
                 <span
                   class="relative inline-flex size-2 scale-90 rounded-full"
-                  :class="global.available ? 'bg-success' : 'bg-error'"
+                  :class="global.available ? 'bg-primary' : 'bg-error'"
                 />
               </span>
             </template>
@@ -156,7 +171,7 @@ defineProps<{
       </div>
     </template>
 
-    <UMarquee
+    <!-- <UMarquee
       pause-on-hover
       class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]"
     >
@@ -186,6 +201,6 @@ defineProps<{
           v-bind="img"
         />
       </Motion>
-    </UMarquee>
+    </UMarquee> -->
   </UPageHero>
 </template>

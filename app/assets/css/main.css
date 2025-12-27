@@ -23,3 +23,8 @@
     background-color: #474747;
   }
 }
+
+.description-no-balance {
+  text-wrap: wrap;
+  text-wrap-style: normal;
+}

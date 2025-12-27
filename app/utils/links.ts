@@ -16,8 +16,4 @@ export const navLinks: NavigationMenuItem[] = [{
   label: 'Speaking',
   icon: 'i-lucide-mic',
   to: '/speaking'
-}, {
-  label: 'About',
-  icon: 'i-lucide-user',
-  to: '/about'
-}]
+},]

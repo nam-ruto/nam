@@ -41,7 +41,6 @@ export default defineContentConfig({
       source: 'index.yml',
       schema: z.object({
         hero: z.object({
-          links: z.array(createButtonSchema()),
           images: z.array(createImageSchema())
         }),
         about: createBaseSchema(),
