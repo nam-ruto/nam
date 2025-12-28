@@ -1,0 +1,12 @@
+title: My Research Papers
+description: Explore my research papers on various topics in computer science and engineering.
+links:
+  - label: "My Scholar"
+    to: "https://scholar.google.com/citations?user=0000000000000000000000000000000000000000"
+papers:
+  - title: "Efficient Multi-Agent Collaboration for Medical Question Answering with Quantized LLMs under Resource Constraints"
+    date: "2025-11-17"
+    location: "ICITE 2025, HCM City, Vietnam"
+    isarxiv: false
+    url: "/paper/pdf/DoctorAI_ICITE_2025.pdf"
+    image: /paper/image/doctor-ai-2025.png

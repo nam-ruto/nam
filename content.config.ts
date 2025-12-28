@@ -104,26 +104,27 @@ export default defineContentConfig({
         links: z.array(createButtonSchema())
       })
     }),
-    speaking: defineCollection({
-      type: 'page',
-      source: 'speaking.yml',
-      schema: z.object({
-        links: z.array(createButtonSchema()),
-        events: z.array(z.object({
-          category: z.enum(['Live talk', 'Podcast', 'Conference']),
-          title: z.string(),
-          date: z.date(),
-          location: z.string(),
-          url: z.string().optional()
-        }))
-      })
-    }),
     about: defineCollection({
       type: 'page',
       source: 'about.yml',
       schema: z.object({
         content: z.object({}),
         images: z.array(createImageSchema())
+      })
+    }),
+    papers: defineCollection({
+      type: 'page',
+      source: 'papers.yml',
+      schema: z.object({
+        links: z.array(createButtonSchema()),
+        papers: z.array(z.object({
+          title: z.string(),
+          date: z.date(),
+          location: z.string(),
+          isarxiv: z.boolean(),
+          url: z.string(),
+          image: z.string().optional()
+        }))
       })
     })
   }
