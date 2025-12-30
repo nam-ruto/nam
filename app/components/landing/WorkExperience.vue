@@ -37,8 +37,11 @@ defineProps<{
           >
             <span class="text-sm">{{ experience.position }}</span>
             <div
-              class="inline-flex items-center gap-1"
-              :style="{ color: experience.company.color }"
+              class="inline-flex items-center gap-1 text-[var(--company-color)] dark:text-[var(--company-color-dark)]"
+              :style="{
+                '--company-color': experience.company.color,
+                '--company-color-dark': (experience.company as any).color_dark || experience.company.color
+              }"
             >
               <span class="font-medium">{{ experience.company.name }}</span>
               <!-- <UIcon

@@ -52,7 +52,8 @@ export default defineContentConfig({
               name: z.string(),
               url: z.string(),
               logo: z.string().editor({ input: 'icon' }),
-              color: z.string()
+              color: z.string(),
+              color_dark: z.string().optional()
             })
           }))
         }),

@@ -31,34 +31,38 @@ about:
 experience:
   title: Work Experience
   items:
-    - position: "Software Engineer @"
+    - position: "Software Engineer at"
       date: "June 2024 - Present"
       company:
         name: ISODS
         logo: "i-custom-isods"
         url: "https://ai.isods.org/"
         color: "#FF6816"
-    - position: "Data Engineer @"
+        color_dark: "#FF6816"
+    - position: "Data Engineer at"
       date: "May 2025 - Aug 2025"
       company:
         name: Cerrowire
         logo: "i-simple-icons-target"
         url: "https://www.cerrowire.com/"
-        color: "#FFFFFF"
-    - position: "Mobile Development @"
+        color: "#000000"
+        color_dark: "#FFFFFF"
+    - position: "Mobile Development at"
       date: "Jan 2025 - Dec 2025"
       company:
         name: Troy Uni
         logo: "i-custom-troy"
         url: "https://troy.edu/"
-        color: "#720724"
-    - position: "Data Engineer @"
+        color: "#910039"
+        color_dark: "#910039"
+    - position: "Data Engineer at"
       date: "May 2024 - Aug 2024"
       company:
         name: FPT Software
         logo: "i-custom-fpt"
         url: "https://fptsoftware.com/"
         color: "#0052A5"
+        color_dark: "#0052A5"
 testimonials:
   - quote: "Emma's approach to UX design completely transformed our product. She has a rare ability to balance beautiful aesthetics with functional simplicity. The redesign not only looked better, but it reduced our customer support tickets by 40% and increased conversion rates across all key metrics."
     author:
