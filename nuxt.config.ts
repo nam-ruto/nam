@@ -45,5 +45,9 @@ export default defineNuxtConfig({
         dir: './app/assets/icons'
       }
     ]
+  },
+
+  colorMode: {
+    preference: 'dark'
   }
 })
