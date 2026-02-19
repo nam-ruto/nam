@@ -67,7 +67,7 @@ defineProps<{
 
     <template #description>
       <Motion
-        class="italic"
+        class="italic max-w-xl mx-auto"
         :initial="{
           scale: 1.1,
           opacity: 0,
