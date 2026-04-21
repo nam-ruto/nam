@@ -1,22 +1,22 @@
 title: My Bookmarks
-description: A curated collection of resources I genuinely find useful — articles, videos, courses, and tools across the topics I care about most.
+description: A curated collection of resources I genuinely find useful — articles, videos, courses, and tools across the topics I care about most. Happy to share them with you!
 seo:
   title: Bookmarks - Nam Hoang
   description: A curated collection of learning resources and tools across web dev, AI/ML, system design, and more.
 
 bookmarks:
   # ── Web Dev ──────────────────────────────────────────────────────────
+  - title: "CSS Tricks"
+    url: "https://css-tricks.com"
+    type: tool
+    category: "Web Dev"
+    tags: [css, web]
+  
   - title: "javascript.info"
     url: "https://javascript.info"
     type: article
     category: "Web Dev"
     tags: [javascript, fundamentals]
-
-  - title: "CSS Tricks"
-    url: "https://css-tricks.com"
-    type: article
-    category: "Web Dev"
-    tags: [css, web]
 
   - title: "Fireship"
     url: "https://www.youtube.com/@Fireship"

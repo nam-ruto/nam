@@ -112,7 +112,17 @@ function capitalize(str: string): string {
         title: '!mx-0 text-left',
         description: '!mx-0 text-left'
       }"
-    />
+    >
+      <template #description>
+        <p class="mt-2 text-md text-muted text-pretty sm:text-md">
+          {{ page.description }}
+        </p>
+        <p class="mt-3 text-sm text-muted">
+          <span class="font-semibold text-primary">{{ page.bookmarks.length }}</span> resources across
+          <span class="font-semibold text-primary">{{ new Set(page.bookmarks.map(b => b.category)).size }}</span> categories
+        </p>
+      </template>
+    </UPageHero>
 
     <UPageSection
       :ui="{
@@ -124,7 +134,7 @@ function capitalize(str: string): string {
         <UButton
           size="sm"
           :variant="activeType === 'all' ? 'solid' : 'ghost'"
-          color="neutral"
+          :color="activeType === 'all' ? 'primary' : 'neutral'"
           label="All"
           @click="activeType = 'all'"
         />
@@ -133,7 +143,7 @@ function capitalize(str: string): string {
           :key="type"
           size="sm"
           :variant="activeType === type ? 'solid' : 'ghost'"
-          color="neutral"
+          :color="activeType === type ? typeConfig[type].color : 'neutral'"
           :leading-icon="typeConfig[type].icon"
           :label="capitalize(type)"
           @click="activeType = type"
@@ -141,79 +151,87 @@ function capitalize(str: string): string {
       </div>
 
       <!-- Category groups -->
-      <div
-        v-for="group in filteredGrouped"
+      <template
+        v-for="(group, i) in filteredGrouped"
         :key="group.category"
-        class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8 last:mb-0"
       >
-        <!-- Left: sticky category label -->
-        <div class="lg:col-span-1 mb-4 lg:mb-0">
-          <div class="lg:sticky lg:top-16">
-            <h2 class="text-xl font-semibold tracking-tight text-highlighted">
-              {{ group.category }}
-            </h2>
-            <p class="text-sm text-muted mt-1">
-              {{ group.items.length }} {{ group.items.length === 1 ? 'resource' : 'resources' }}
-            </p>
+        <USeparator
+          v-if="i > 0"
+          class="mb-8"
+        />
+        <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8 last:mb-0">
+          <!-- Left: sticky category label -->
+          <div class="lg:col-span-1 mb-4 lg:mb-0">
+            <div class="lg:sticky lg:top-16">
+              <h2 class="text-xl font-semibold tracking-tight text-highlighted pl-3 border-l-2 border-primary">
+                {{ group.category }}
+              </h2>
+              <p class="text-sm text-muted mt-1">
+                {{ group.items.length }} {{ group.items.length === 1 ? 'resource' : 'resources' }}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- Right: 2-col grid of bookmark tiles -->
-        <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Motion
-            v-for="(bookmark, index) in group.items"
-            :key="bookmark.url"
-            :initial="{ opacity: 0, transform: 'translateY(8px)' }"
-            :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-            :transition="{ delay: 0.07 * index }"
-            :in-view-options="{ once: true }"
-          >
-            <NuxtLink
-              :to="bookmark.url"
-              target="_blank"
-              class="block h-full"
+          <!-- Right: 2-col grid of bookmark tiles -->
+          <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Motion
+              v-for="(bookmark, index) in group.items"
+              :key="bookmark.url"
+              :initial="{ opacity: 0, transform: 'translateY(8px)' }"
+              :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
+              :transition="{ delay: 0.07 * index }"
+              :in-view-options="{ once: true }"
             >
-              <UCard
-                variant="subtle"
-                class="group h-full hover:ring-1 hover:ring-primary/50 transition-all duration-200 cursor-pointer"
+              <NuxtLink
+                :to="bookmark.url"
+                target="_blank"
+                class="block h-full"
               >
-                <div class="flex items-center gap-3">
-                  <!-- Logo -->
-                  <div class="shrink-0 size-9 rounded-lg overflow-hidden bg-muted flex items-center justify-center">
-                    <img
-                      :src="getLogoUrl(bookmark)"
-                      :alt="bookmark.title"
-                      class="size-6 object-contain"
-                      @error="(e) => handleLogoError(e, bookmark)"
+                <UCard
+                  variant="subtle"
+                  class="group h-full hover:ring-1 hover:ring-primary/50 transition-all duration-200 cursor-pointer"
+                >
+                  <div class="flex items-center gap-3">
+                    <!-- Logo -->
+                    <div
+                      class="shrink-0 size-9 rounded-lg overflow-hidden flex items-center justify-center"
+                      :class="`bg-${typeConfig[bookmark.type].color}/10`"
                     >
-                  </div>
+                      <img
+                        :src="getLogoUrl(bookmark)"
+                        :alt="bookmark.title"
+                        class="size-6 object-contain"
+                        @error="(e) => handleLogoError(e, bookmark)"
+                      >
+                    </div>
 
-                  <!-- Title + badge -->
-                  <div class="min-w-0 flex-1">
-                    <p class="text-sm font-medium text-highlighted truncate group-hover:text-primary transition-colors duration-200">
-                      {{ bookmark.title }}
-                    </p>
-                    <UBadge
-                      :color="typeConfig[bookmark.type].color"
-                      :leading-icon="typeConfig[bookmark.type].icon"
-                      variant="subtle"
-                      size="xs"
-                      :label="capitalize(bookmark.type)"
-                      class="mt-1.5"
+                    <!-- Title + badge -->
+                    <div class="min-w-0 flex-1">
+                      <p class="text-sm font-medium text-highlighted truncate group-hover:text-primary transition-colors duration-200">
+                        {{ bookmark.title }}
+                      </p>
+                      <UBadge
+                        :color="typeConfig[bookmark.type].color"
+                        :leading-icon="typeConfig[bookmark.type].icon"
+                        variant="subtle"
+                        size="xs"
+                        :label="capitalize(bookmark.type)"
+                        class="mt-1.5"
+                      />
+                    </div>
+
+                    <!-- External link indicator -->
+                    <UIcon
+                      name="i-lucide-external-link"
+                      class="shrink-0 size-4 text-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                     />
                   </div>
-
-                  <!-- External link indicator -->
-                  <UIcon
-                    name="i-lucide-external-link"
-                    class="shrink-0 size-4 text-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                  />
-                </div>
-              </UCard>
-            </NuxtLink>
-          </Motion>
+                </UCard>
+              </NuxtLink>
+            </Motion>
+          </div>
         </div>
-      </div>
+      </template>
 
       <!-- Empty state -->
       <div
