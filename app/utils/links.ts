@@ -16,4 +16,8 @@ export const navLinks: NavigationMenuItem[] = [{
   label: 'Papers',
   icon: 'i-lucide-graduation-cap',
   to: '/papers'
+}, {
+  label: 'Bookmarks',
+  icon: 'i-lucide-bookmark',
+  to: '/bookmarks'
 }]

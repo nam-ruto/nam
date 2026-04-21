@@ -127,6 +127,24 @@ export default defineContentConfig({
           image: z.string().optional()
         }))
       })
+    }),
+    bookmarks: defineCollection({
+      type: 'page',
+      source: 'bookmarks.yml',
+      schema: z.object({
+        seo: z.object({
+          title: z.string().optional(),
+          description: z.string().optional()
+        }).optional(),
+        bookmarks: z.array(z.object({
+          title: z.string(),
+          url: z.string(),
+          type: z.enum(['article', 'video', 'course', 'book', 'tool', 'repo']),
+          category: z.string(),
+          tags: z.array(z.string()).optional(),
+          logo: z.string().optional()
+        }))
+      })
     })
   }
 })
