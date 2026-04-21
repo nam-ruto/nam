@@ -43,7 +43,7 @@ const activeType = ref<BookmarkType | 'all'>('all')
 
 type BadgeColor = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error' | 'neutral'
 
-const typeConfig: Record<BookmarkType, { color: BadgeColor; icon: string }> = {
+const typeConfig: Record<BookmarkType, { color: BadgeColor, icon: string }> = {
   article: { color: 'info', icon: 'i-lucide-file-text' },
   video: { color: 'error', icon: 'i-lucide-play' },
   course: { color: 'warning', icon: 'i-lucide-graduation-cap' },
