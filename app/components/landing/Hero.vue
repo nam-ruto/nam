@@ -16,7 +16,6 @@ defineProps<{
       links: 'mt-4 flex-col justify-center items-center'
     }"
   >
-
     <template #headline>
       <Motion
         :initial="{
