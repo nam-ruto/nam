@@ -35,7 +35,7 @@ useSeoMeta({
       :description="page.description"
       :links="page.links"
       :ui="{
-        title: '!mx-0 text-left',
+        title: '!mx-0 text-left gradient-text',
         description: '!mx-0 text-left',
         links: 'justify-start'
       }"

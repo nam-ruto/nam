@@ -16,6 +16,7 @@ defineProps<{
       links: 'mt-4 flex-col justify-center items-center'
     }"
   >
+
     <template #headline>
       <Motion
         :initial="{
@@ -29,18 +30,25 @@ defineProps<{
           filter: 'blur(0px)'
         }"
         :transition="{
-          duration: 0.6,
-          delay: 0.1
+          duration: 0.8,
+          delay: 0.05
         }"
       >
-        <UColorModeAvatar
-          class="size-32 ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
-          width="528"
-          height="528"
-          :light="global.picture?.light!"
-          :dark="global.picture?.dark!"
-          :alt="global.picture?.alt!"
-        />
+        <div class="relative flex items-center justify-center">
+          <!-- Glow ring behind avatar -->
+          <div
+            class="absolute size-44 rounded-full"
+            style="background: radial-gradient(circle, var(--accent-glow-strong) 0%, var(--accent-glow) 50%, transparent 70%);"
+          />
+          <UColorModeAvatar
+            class="relative size-32 ring-2 ring-primary/30 ring-offset-3 ring-offset-(--ui-bg) rounded-full"
+            width="528"
+            height="528"
+            :light="global.picture?.light!"
+            :dark="global.picture?.dark!"
+            :alt="global.picture?.alt!"
+          />
+        </div>
       </Motion>
     </template>
 
@@ -57,11 +65,11 @@ defineProps<{
           filter: 'blur(0px)'
         }"
         :transition="{
-          duration: 0.6,
-          delay: 0.1
+          duration: 0.8,
+          delay: 0.15
         }"
       >
-        {{ page.title }}
+        <span class="gradient-text">{{ page.title }}</span>
       </Motion>
     </template>
 
@@ -79,7 +87,7 @@ defineProps<{
           filter: 'blur(0px)'
         }"
         :transition="{
-          duration: 0.6,
+          duration: 0.8,
           delay: 0.3
         }"
       >
@@ -100,8 +108,8 @@ defineProps<{
           filter: 'blur(0px)'
         }"
         :transition="{
-          duration: 0.6,
-          delay: 0.5
+          duration: 0.8,
+          delay: 0.45
         }"
       >
         <div class="flex items-center gap-2">
@@ -111,6 +119,7 @@ defineProps<{
             download="NamHoang_SE.pdf"
             href="/resume/NamHoang_SE.pdf"
             target="_blank"
+            class="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10"
           />
           <UButton
             :color="global.available ? 'primary' : 'error'"
@@ -139,7 +148,6 @@ defineProps<{
         <Motion
           v-for="(link, index) of footer?.links"
           :key="index"
-
           :initial="{
             scale: 1.1,
             opacity: 0,
@@ -157,14 +165,16 @@ defineProps<{
         >
           <UButton
             v-bind="{ size: 'md', color: 'neutral', variant: 'ghost', ...link }"
+            class="transition-all duration-300 hover:scale-110 hover:text-primary"
           />
         </Motion>
       </div>
     </template>
 
+    <!-- Image Marquee -->
     <!-- <UMarquee
       pause-on-hover
-      class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]"
+      class="py-4 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]"
     >
       <Motion
         v-for="(img, index) in page.hero.images"
@@ -187,8 +197,8 @@ defineProps<{
         <NuxtImg
           width="234"
           height="234"
-          class="rounded-lg aspect-square object-cover"
-          :class="index % 2 === 0 ? '-rotate-2' : 'rotate-2'"
+          class="rounded-xl aspect-square object-cover shadow-lg transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:scale-105"
+          :class="index % 2 === 0 ? '-rotate-2 hover:rotate-0' : 'rotate-2 hover:rotate-0'"
           v-bind="img"
         />
       </Motion>

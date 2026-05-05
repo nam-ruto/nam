@@ -109,7 +109,7 @@ function capitalize(str: string): string {
       :description="page.description"
       :ui="{
         container: '!pb-8',
-        title: '!mx-0 text-left',
+        title: '!mx-0 text-left gradient-text',
         description: '!mx-0 text-left'
       }"
     >

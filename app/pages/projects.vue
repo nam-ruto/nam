@@ -11,7 +11,7 @@ if (!page.value) {
 }
 
 const { data: projects } = await useAsyncData('projects', () => {
-  return queryCollection('projects').all()
+  return queryCollection('projects').order('date', 'DESC').all()
 })
 
 const { global } = useAppConfig()
@@ -31,7 +31,7 @@ useSeoMeta({
       :description="page.description"
       :links="page.links"
       :ui="{
-        title: '!mx-0 text-left',
+        title: '!mx-0 text-left gradient-text',
         description: '!mx-0 text-left',
         links: 'justify-start'
       }"
@@ -72,11 +72,8 @@ useSeoMeta({
           :to="project.url"
           orientation="horizontal"
           variant="naked"
-          :reverse="index % 2 === 1"
+          reverse
           class="group"
-          :ui="{
-            wrapper: 'max-sm:order-last'
-          }"
         >
           <template #leading>
             <span class="text-sm text-muted">
@@ -84,16 +81,18 @@ useSeoMeta({
             </span>
           </template>
           <template #footer>
-            <ULink
+            <UButton
+              label="Source code"
               :to="project.url"
-              class="text-sm text-primary flex items-center"
-            >
-              Source Code
-              <UIcon
-                name="i-lucide-arrow-right"
-                class="size-4 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
-              />
-            </ULink>
+              target="_blank"
+              rel="noopener noreferrer"
+              trailing-icon="i-lucide-arrow-up-right"
+              color="primary"
+              variant="soft"
+              size="sm"
+              class="group relative z-10 rounded-full font-medium shadow-sm shadow-primary/10 ring ring-primary/10 transition-[box-shadow,transform] hover:shadow-md hover:shadow-primary/15 active:scale-[0.98]"
+              :ui="{ trailingIcon: 'size-4 opacity-70 transition-all group-hover:opacity-100 group-hover:translate-x-px group-hover:-translate-y-px' }"
+            />
           </template>
           <img
             :src="project.image"

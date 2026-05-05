@@ -86,7 +86,7 @@ testimonials:
         src: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
         srcset: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
 blog:
-  title: "Latest Articles"
+  title: "Latest Blogs"
   description: "Some of my recent thoughts 💭"
 faq:
   title: Frequently Asked Questions

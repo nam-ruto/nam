@@ -74,7 +74,7 @@ function formatDate(dateString: string | Date): string {
       :title="page.title"
       :description="page.description"
       :ui="{
-        title: '!mx-0 text-left',
+        title: '!mx-0 text-left gradient-text',
         description: '!mx-0 text-left',
         links: 'justify-start'
       }"

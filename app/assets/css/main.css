@@ -1,15 +1,25 @@
+/* ─── Google Fonts ─── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
 @import "@nuxt/ui";
 
 @source "../../../content/**/*";
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-sans: 'Inter', 'Public Sans', sans-serif;
   --font-serif: 'Instrument Serif', serif;
 }
 
+/* ─── Design Tokens (used by Hero) ─── */
 :root {
   --ui-container: var(--container-4xl);
+
+  --accent-glow: rgba(45, 212, 191, 0.15);
+  --accent-glow-strong: rgba(45, 212, 191, 0.3);
+  --gradient-start: #0d9488;
+  --gradient-mid: #2dd4bf;
+  --gradient-end: #5eead4;
 
   ::selection {
     color: #282a30;
@@ -18,10 +28,59 @@
 }
 
 .dark {
+  --accent-glow: rgba(45, 212, 191, 0.1);
+  --accent-glow-strong: rgba(45, 212, 191, 0.2);
+
   ::selection {
     color: #ffffff;
     background-color: #474747;
   }
+}
+
+/* ─── Hero Animations ─── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(2deg); }
+  66% { transform: translateY(-8px) rotate(-1deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow); }
+  50% { box-shadow: 0 0 30px var(--accent-glow-strong), 0 0 80px var(--accent-glow); }
+}
+
+/* ─── Hero Utilities ─── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease infinite;
+  line-height: 1.3;
+  padding-bottom: 0.1em;
+}
+
+.glow-ring {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
 }
 
 .description-no-balance {
