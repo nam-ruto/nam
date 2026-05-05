@@ -54,7 +54,7 @@ experience:
         logo: "i-custom-troy"
         url: "https://troy.edu/"
         color: "#910039"
-        color_dark: "#910039"
+        color_dark: "#FFFFFF"
     - position: "Data Engineer at"
       date: "May 2024 - Aug 2024"
       company:
