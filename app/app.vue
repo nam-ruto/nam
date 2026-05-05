@@ -19,8 +19,8 @@ useHead({
 
 useSeoMeta({
   titleTemplate: '%s',
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png',
+  ogImage: '/thumbnail/dark-thumbnail.png',
+  twitterImage: '/thumbnail/dark-thumbnail.png',
   twitterCard: 'summary_large_image'
 })
 
